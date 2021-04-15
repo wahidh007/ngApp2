@@ -14,4 +14,24 @@ export class AppareilService {
               ];
 
   constructor() { }
+
+  switchOnAll() {
+    this.appareils.forEach(app => {
+      app.status = 'allumé';
+    });
+  }
+
+  switchOffAll() {
+    this.appareils.forEach(app => {
+      app.status = 'éteint';
+    });
+  }
+
+  switchApp(i: number) {
+    if (this.appareils[i].status === 'éteint') {
+      this.appareils[i].status = 'allumé';
+    } else if (this.appareils[i].status === 'allumé'){
+      this.appareils[i].status = 'éteint'
+    }
+  }
 }
